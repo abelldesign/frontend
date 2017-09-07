@@ -74,7 +74,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new FaviconsPlugin: ({
+    new FaviconsPlugin({
       logo: './static/logo.svg',
       prefix: 'icons-[hash]/',
       emitStats: false,

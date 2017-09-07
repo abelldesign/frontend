@@ -74,6 +74,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new FaviconsPlugin: ({
       logo: './static/logo.svg',
       prefix: 'icons-[hash]/',
       emitStats: false,
@@ -93,6 +94,6 @@ module.exports = {
         yandex: false,
         windows: false
       }
-
+    })
   ]
 }

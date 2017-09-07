@@ -1,4 +1,5 @@
 var path = require('path')
+var FaviconsPlugin = require('favicons-webpack-plugin')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
@@ -71,5 +72,27 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+      logo: './static/logo.svg',
+      prefix: 'icons-[hash]/',
+      emitStats: false,
+      persistentCache: true,
+      inject: true,
+      background: '#fff',
+      title: 'Abell Design',
+      icons: {
+        android: true,
+        appleIcon: true,
+        appleStartup: true,
+        coast: false,
+        favicons: true,
+        firefox: true,
+        opengraph: false,
+        twitter: false,
+        yandex: false,
+        windows: false
+      }
+
+  ]
 }

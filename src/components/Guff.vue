@@ -1,8 +1,10 @@
 <template>
   <main>
     <div v-for="logo in logos">
-      <div v-if="logo.Image">
-        <img :src="images[logo.Image.replace('.', '')].downloadURLs[0]" />
+      <div v-for="image in images">
+        <div v-if="image.name === logo.Image">
+          <img :src="image.downloadURLs[0]" />
+        </div>
       </div>
     </div>
   </main>
@@ -26,14 +28,12 @@ export default {
     return {
       logos: {
         source: db.ref('data/logos'),
-        asObject: true,
         readyCallback: () => {
           this.loaded = true
         }
       },
       images: {
-        source: db.ref('images'),
-        asObject: true
+        source: db.ref('images')
       }
     }
   }

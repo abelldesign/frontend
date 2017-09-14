@@ -1,15 +1,18 @@
 <template>
   <main class="app">
-    <h1>New website coming soon.</h1>
-
-    <div class="contact">
-			<p><a href="mailto:grace@abelldesign.co.uk">grace@abelldesign.co.uk</a></p>
-    	<p><a href="tel:+447719796949">07719 796949</a></p>
-    </div>
-    <div class="social">
-    	<a href="https://www.facebook.com/AbellDesignYork/"><img alt="Facebook" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBiYXNlUHJvZmlsZT0iYmFzaWMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCINCgkgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMTQxLjcgMTQxLjciIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6IzkxYzVjMjt9DQoJLnN0MXtmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxnIGlkPSJMYXllcl8xIj4NCgk8ZyBpZD0iWE1MSURfMV8iPg0KCQk8Zz4NCgkJCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xNDEuNyw3Ljh2MTI2LjFjMCw0LjMtMy41LDcuOC03LjgsNy44SDk3LjhWODYuOGgxOC40bDIuOC0yMS40SDk3LjhWNTEuOGMwLTYuMiwxLjctMTAuNCwxMC42LTEwLjRsMTEuMywwDQoJCQkJVjIyLjJjLTItMC4zLTguNy0wLjgtMTYuNS0wLjhjLTE2LjMsMC0yNy41LDEwLTI3LjUsMjguM3YxNS44SDU3LjJ2MjEuNGgxOC41djU0LjlINy44Yy00LjMsMC03LjgtMy41LTcuOC03LjhWNy44DQoJCQkJQzAsMy41LDMuNSwwLDcuOCwwaDEyNi4xQzEzOC4yLDAsMTQxLjcsMy41LDE0MS43LDcuOHoiLz4NCgkJPC9nPg0KCTwvZz4NCjwvZz4NCjxnIGlkPSJMYXllcl8yIj4NCjwvZz4NCjwvc3ZnPg0K"></a>
-    	<a href="https://www.twitter.com/grace_neal"><img alt="Twitter" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBiYXNlUHJvZmlsZT0iYmFzaWMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCINCgkgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMTQxLjcgMTQxLjciIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6IzkxYzVjMjt9DQoJLnN0MXtmaWxsOiM5MWM1YzI7fQ0KPC9zdHlsZT4NCjxnIGlkPSJMYXllcl8xIj4NCgk8Zz4NCgkJPHBhdGggY2xhc3M9InN0MCIgZD0iTTE0MS43LDI2LjljLTUuMiwyLjMtMTAuOCwzLjktMTYuNyw0LjZjNi0zLjYsMTAuNi05LjMsMTIuOC0xNi4xYy01LjYsMy4zLTExLjgsNS44LTE4LjUsNy4xDQoJCQljLTUuMy01LjctMTIuOS05LjItMjEuMi05LjJjLTE2LjEsMC0yOS4xLDEzLTI5LjEsMjkuMWMwLDIuMywwLjMsNC41LDAuOCw2LjZDNDUuNiw0Ny44LDI0LjIsMzYuMiw5LjksMTguNg0KCQkJYy0yLjUsNC4zLTMuOSw5LjMtMy45LDE0LjZjMCwxMC4xLDUuMSwxOSwxMi45LDI0LjJjLTQuOC0wLjItOS4zLTEuNS0xMy4yLTMuNmMwLDAuMSwwLDAuMiwwLDAuNGMwLDE0LjEsMTAsMjUuOCwyMy4zLDI4LjUNCgkJCWMtMi40LDAuNy01LDEtNy43LDFjLTEuOSwwLTMuNy0wLjItNS41LTAuNWMzLjcsMTEuNiwxNC40LDIwLDI3LjIsMjAuMmMtMTAsNy44LTIyLjUsMTIuNC0zNi4xLDEyLjRjLTIuMywwLTQuNy0wLjEtNi45LTAuNA0KCQkJYzEyLjksOC4zLDI4LjIsMTMuMSw0NC42LDEzLjFjNTMuNSwwLDgyLjctNDQuMyw4Mi43LTgyLjdjMC0xLjMsMC0yLjUtMC4xLTMuOEMxMzIuOSwzNy45LDEzNy44LDMyLjcsMTQxLjcsMjYuOUwxNDEuNywyNi45eiIvPg0KCTwvZz4NCjwvZz4NCjxnIGlkPSJMYXllcl8yIj4NCjwvZz4NCjwvc3ZnPg0K"></a>
-    	<a href="https://www.linkedin.com/in/grace-abell-neal/"><img alt="LinkedIn" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBiYXNlUHJvZmlsZT0iYmFzaWMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCINCgkgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMTQxLjcgMTQxLjciIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6IzkxYzVjMjt9DQoJLnN0MXtmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxnIGlkPSJMYXllcl8xIj4NCjwvZz4NCjxnIGlkPSJMYXllcl8yIj4NCgk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTMxLjMsMTQxLjdIMTAuNUM0LjcsMTQxLjcsMCwxMzcsMCwxMzEuM1YxMC41QzAsNC43LDQuNywwLDEwLjUsMGgxMjAuOGM1LjgsMCwxMC41LDQuNywxMC41LDEwLjV2MTIwLjgNCgkJQzE0MS43LDEzNywxMzcsMTQxLjcsMTMxLjMsMTQxLjd6Ii8+DQoJPHBhdGggY2xhc3M9InN0MSIgZD0iTTM5LjcsNDQuNkwzOS43LDQ0LjZjLTUuMSwwLTkuMy00LjItOS4zLTkuM3YwYzAtNS4xLDQuMi05LjMsOS4zLTkuM2gwYzUuMSwwLDkuMyw0LjIsOS4zLDkuM3YwDQoJCUM0OSw0MC40LDQ0LjgsNDQuNiwzOS43LDQ0LjZ6Ii8+DQoJPHJlY3QgeD0iMzAuOSIgeT0iNDguNiIgY2xhc3M9InN0MSIgd2lkdGg9IjE3LjgiIGhlaWdodD0iNjIiLz4NCgk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMTA5LjIsNjIuNGMtMS4zLTUuMi0zLjUtMTIuMy0xMy45LTEzLjhjMCwwLTEwLjEtMC41LTEyLjksMC41Yy0yLjIsMC44LTQuOCwyLjUtNi45LDZ2LTYuNkg1Ny43djYyaDE3LjgNCgkJVjczLjljMCwwLDAtOCw5LjYtNy4yYzIuNSwwLjIsNy45LDEuNSw3LjksNy4ydjM2LjhoMTcuOEMxMTAuOSwxMTAuNiwxMTEuMyw2OC45LDEwOS4yLDYyLjR6Ii8+DQo8L2c+DQo8L3N2Zz4NCg=="></a>
+    <ul v-if='loaded' class='items'>
+      <li v-for='item in items' class='item'>
+        <router-link :to='item.Url'>
+          <div v-for='image in images' v-if='image.name === item.Image'>
+            <img :src='image.downloadURLs[0]' />
+            <div class="name">{{ item.id }}</div>
+          </div>
+        </router-link>
+      </li>
+    </ul>
+    <div class='clearfix' />
+    <div v-if='!loaded'>
+      <h1>Loading...</h1>
     </div>
   </main>
 </template>
@@ -30,39 +33,84 @@ export default {
   },
   firebase: function () {
     return {
-      homepage: {
-        source: db.ref('data/homepage'),
-        asObject: true,
+      items: {
+        source: db.ref('data/homepageitems'),
         readyCallback: () => {
           this.loaded = true
         }
+      },
+      images: {
+        source: db.ref('images')
       }
     }
   }
 }
 </script>
 
-<style>
+<style lang="less">
 h1 {
 	font-size: 30px;
 	margin: 50px 0;
 }
+
 p {
 	margin-bottom: 10px;
 }
-.social {margin-top: 50px;}
-.social img {
-  max-width: 25px;
-  padding: 10px;
+
+.clearfix {
+  clear: both;
 }
-.app {
-  text-align: center;
+
+.items {
+  width: 100%;
+
+  @media screen and (min-width: 1024px) {
+    width: 1000px;
+    margin: 0 auto;
+  }
+
+  .item {
+    width: 50%;
+    float: left;
+    height: 200px;
+
+    @media screen and (min-width: 475px) {
+      height: 230px;
+    }
+
+    @media screen and (min-width: 545px) {
+      height: 260px;
+    }
+
+    @media screen and (min-width: 699px) {
+      width: 33.33%
+    }
+
+    a {
+      margin: 20px;
+      display: block;
+      text-align: center;
+
+      img {
+        max-height: 200px;
+        max-width: 100%;
+      }
+
+      .name {
+        height: 30px;
+        overflow: hidden;
+        line-height: 30px;
+        text-align: center;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 400px) {
   .logo {
   	max-width: 200px;
   }
+
   h1 {
   	font-size: 24px;
   }
@@ -73,12 +121,15 @@ p {
   	max-width: auto;
   	width: 80%;
   }
+
   a {
   	font-size: 12px;
   }
+
   h1 {
   	margin-bottom: 20px;
   }
+
   .social {
   	margin-top: 20px;
   }

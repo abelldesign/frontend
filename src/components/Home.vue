@@ -1,6 +1,6 @@
 <template>
   <main class="app">
-    <ul v-if='loaded' class='items'>
+    <ul v-if='loaded' class='items container'>
       <li v-for='item in items' class='item'>
         <router-link :to='item.Url'>
           <div v-for='image in images' v-if='image.name === item.Image'>
@@ -11,9 +11,7 @@
       </li>
     </ul>
     <div class='clearfix' />
-    <div v-if='!loaded'>
-      <h1>Loading...</h1>
-    </div>
+    <Loading :loaded='loaded' />
   </main>
 </template>
 
@@ -62,13 +60,6 @@ p {
 }
 
 .items {
-  width: 100%;
-
-  @media screen and (min-width: 1024px) {
-    width: 1000px;
-    margin: 0 auto;
-  }
-
   .item {
     width: 50%;
     float: left;
@@ -85,23 +76,23 @@ p {
     @media screen and (min-width: 699px) {
       width: 33.33%
     }
+  }
 
-    a {
-      margin: 20px;
-      display: block;
+  a {
+    margin: 20px;
+    display: block;
+    text-align: center;
+
+    img {
+      max-height: 200px;
+      max-width: 100%;
+    }
+
+    .name {
+      height: 30px;
+      overflow: hidden;
+      line-height: 30px;
       text-align: center;
-
-      img {
-        max-height: 200px;
-        max-width: 100%;
-      }
-
-      .name {
-        height: 30px;
-        overflow: hidden;
-        line-height: 30px;
-        text-align: center;
-      }
     }
   }
 }

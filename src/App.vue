@@ -97,4 +97,13 @@ main {
   font-family: 'Lato', sans-serif;
   padding: 20px;
 }
+
+.container {
+  width: 100%;
+
+  @media screen and (min-width: 1024px) {
+    width: 1000px;
+    margin: 0 auto;
+  }
+}
 </style>

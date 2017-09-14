@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+import Brochures from '@/components/Brochures'
 import Home from '@/components/Home'
-import Guff from '@/components/Guff'
 import Missing from '@/components/Missing'
 
 Vue.use(Router)
@@ -16,9 +16,9 @@ export default new Router({
       component: Home
     },
     {
-      path: '/guff',
-      name: 'Guff',
-      component: Guff
+      path: '/brochures',
+      name: 'Brochures',
+      component: Brochures
     },
     {
       path: '*',

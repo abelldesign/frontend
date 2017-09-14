@@ -1,5 +1,5 @@
 <template>
-  <div class='loading'>
+  <div v-if='!loaded' class='loading'>
     <div class='spinner'>
       <Loader color='#90c5c2' />
     </div>
@@ -14,7 +14,10 @@ export default {
   name: 'Loading',
   components: {
     Loader
-  }
+  },
+  props: [
+    'loaded'
+  ]
 }
 </script>
 

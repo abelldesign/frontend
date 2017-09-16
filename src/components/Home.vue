@@ -1,13 +1,17 @@
 <template>
   <main class="app">
     <ul v-if='loaded' class='items container'>
-      <li v-for='item in items' class='item'>
-        <router-link :to='item.Url'>
-          <div v-for='image in images' v-if='image.name === item.Image'>
-            <img :src='image.downloadURLs[0]' />
-            <div class="name">{{ item.id }}</div>
-          </div>
-        </router-link>
+      <li v-for='item in data' v-if='item.Title'>
+        <span v-for='content in data' v-if='item.Title.toLowerCase() === content[".key"]'>
+          <span v-for='key in Object.keys(content)' v-if='(key !== ".key") && (content[key]["Show on Homepage"])'>
+            <router-link :to='item.Url'>
+              <div class='item'>
+                <img v-if='content[key].Images[0]' :src='content[key].Images[0]' />
+                <div>{{ item.Title }}</div>
+              </div>
+            </router-link>
+          </span>
+        </span>
       </li>
     </ul>
     <div class='clearfix' />
@@ -31,14 +35,11 @@ export default {
   },
   firebase: function () {
     return {
-      items: {
-        source: db.ref('data/homepageitems'),
+      data: {
+        source: db.ref('data'),
         readyCallback: () => {
           this.loaded = true
         }
-      },
-      images: {
-        source: db.ref('images')
       }
     }
   }

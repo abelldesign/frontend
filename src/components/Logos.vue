@@ -22,7 +22,7 @@ import { db } from '@/firebase.js'
 import Loading from '@/components/Loading'
 
 export default {
-  name: 'Brochures',
+  name: 'Logos',
   data: function () {
     return {
       loaded: false
@@ -34,11 +34,11 @@ export default {
   firebase: function () {
     return {
       page: {
-        source: db.ref('data/brochurespage'),
+        source: db.ref('data/logospage'),
         asObject: true
       },
       items: {
-        source: db.ref('data/brochures'),
+        source: db.ref('data/logos'),
         readyCallback: () => {
           this.loaded = true
         }

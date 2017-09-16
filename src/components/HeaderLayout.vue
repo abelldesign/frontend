@@ -48,6 +48,7 @@ export default {
    .logo {
       float: left;
       padding-left: 5px;
+      height: 70px;
 
       img {
         height: 50px;

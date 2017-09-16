@@ -52,6 +52,7 @@ time, mark, audio, video {
 	font: inherit;
   color: @slate;
 	vertical-align: baseline;
+  line-height: 1.5em;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -106,4 +107,44 @@ main {
     margin: 0 auto;
   }
 }
+
+.content-summary {
+  h1 {
+    margin: 0;
+  }
+}
+
+.content {
+  .item {
+    margin-top: 50px;
+
+    &:after {
+      display: block;
+      content: ' ';
+      clear: both;
+    }
+
+    h2 {
+      display: block;
+      width: 100%;
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .description {
+      margin-bottom: 20px;
+    }
+
+    .image-container {
+      float: left;
+      width: 50%;
+
+      img {
+        width: 92%;
+        padding-right: 4%;
+      }
+    }
+  }
+}
+
 </style>

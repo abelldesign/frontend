@@ -22,7 +22,7 @@ import { db } from '@/firebase.js'
 import Loading from '@/components/Loading'
 
 export default {
-  name: 'Brochures',
+  name: 'Ebooks',
   data: function () {
     return {
       loaded: false

@@ -24,7 +24,7 @@ import { db, storage } from '@/firebase.js'
 import Loading from '@/components/Loading'
 
 export default {
-  name: 'PrintedMerchandise',
+  name: 'PrintServices',
   data: function () {
     return {
       dataLoaded: false,
@@ -38,11 +38,11 @@ export default {
   firebase: function () {
     return {
       page: {
-        source: db.ref('data/printed merchandise page'),
+        source: db.ref('data/print services page'),
         asObject: true
       },
       items: {
-        source: db.ref('data/printed merchandise'),
+        source: db.ref('data/print services'),
         readyCallback: () => {
           this.dataLoaded = true
         }

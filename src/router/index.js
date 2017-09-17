@@ -4,6 +4,7 @@ import Ads from '@/components/Ads'
 import Brochures from '@/components/Brochures'
 import BusinessStationery from '@/components/BusinessStationery'
 import DisplayBanners from '@/components/DisplayBanners'
+import Documents from '@/components/Documents'
 import Ebooks from '@/components/Ebooks'
 import Home from '@/components/Home'
 import Logos from '@/components/Logos'
@@ -44,6 +45,11 @@ export default new Router({
       path: '/display-banners',
       name: 'Display Banners',
       component: DisplayBanners
+    },
+    {
+      path: '/documents',
+      name: 'Documents',
+      component: Documents
     },
     {
       path: '/ebooks',

@@ -10,7 +10,7 @@
         <div class='description'>{{ item.Description }}</div>
         <div class='image-container' v-for='imageFullPath in item.Images'>
           <span v-for='image in imageURLs' v-if='imageFullPath === image.fullPath'>
-            {{ image, item }}
+            <img :src='image.url' />
           </span>
         </div>
       </li>

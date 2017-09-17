@@ -12,9 +12,8 @@ import Magazines from '@/components/Magazines'
 import Missing from '@/components/Missing'
 import Packaging from '@/components/Packaging'
 import Posters from '@/components/Posters'
-import PrintedMerchandise from '@/components/PrintedMerchandise'
+import PrintServices from '@/components/PrintServices'
 import StickersLabels from '@/components/StickersLabels'
-import Tablecloths from '@/components/Tablecloths'
 
 Vue.use(Router)
 
@@ -77,19 +76,14 @@ export default new Router({
       component: Posters
     },
     {
-      path: '/merchandise',
-      name: 'Printed Merchandise',
-      component: PrintedMerchandise
+      path: '/print-services',
+      name: 'Print Services',
+      component: PrintServices
     },
     {
       path: '/labels',
       name: 'Stickers and Labels',
       component: StickersLabels
-    },
-    {
-      path: '/tablecloths',
-      name: 'Tablecloths',
-      component: Tablecloths
     },
     {
       path: '*',

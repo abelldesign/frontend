@@ -13,7 +13,6 @@ import Missing from '@/components/Missing'
 import Packaging from '@/components/Packaging'
 import Posters from '@/components/Posters'
 import PrintServices from '@/components/PrintServices'
-import StickersLabels from '@/components/StickersLabels'
 
 Vue.use(Router)
 
@@ -79,11 +78,6 @@ export default new Router({
       path: '/print-services',
       name: 'Print Services',
       component: PrintServices
-    },
-    {
-      path: '/labels',
-      name: 'Stickers and Labels',
-      component: StickersLabels
     },
     {
       path: '*',

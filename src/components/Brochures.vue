@@ -2,7 +2,7 @@
   <main class='container'>
     <div class='content-summary'>
       <h1>{{ page.Title }}</h1>
-      <p v-if='page.Summary'>{{ page.Summary }}</p>
+      <p v-if='page.Description'>{{ page.Description }}</p>
     </div>
     <ul class='content'>
       <li class="item" v-for='item in items'>

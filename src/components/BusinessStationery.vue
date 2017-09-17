@@ -34,11 +34,11 @@ export default {
   firebase: function () {
     return {
       page: {
-        source: db.ref('data/businesssationerypage'),
+        source: db.ref('data/business stationery page'),
         asObject: true
       },
       items: {
-        source: db.ref('data/businessstationery'),
+        source: db.ref('data/business stationery'),
         readyCallback: () => {
           this.loaded = true
         }

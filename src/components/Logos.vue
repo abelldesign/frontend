@@ -34,7 +34,7 @@ export default {
   firebase: function () {
     return {
       page: {
-        source: db.ref('data/logospage'),
+        source: db.ref('data/logos page'),
         asObject: true
       },
       items: {

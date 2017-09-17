@@ -34,7 +34,7 @@ export default {
   firebase: function () {
     return {
       page: {
-        source: db.ref('data/brochurespage'),
+        source: db.ref('data/brochures page'),
         asObject: true
       },
       items: {

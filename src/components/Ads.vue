@@ -34,7 +34,7 @@ export default {
   firebase: function () {
     return {
       page: {
-        source: db.ref('data/adspage'),
+        source: db.ref('data/ads page'),
         asObject: true
       },
       items: {

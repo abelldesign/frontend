@@ -1,6 +1,6 @@
 <template>
   <main class="app">
-    <ul v-if='loaded' class='items container'>
+    <ul v-if='dataLoaded' class='items container'>
       <li v-for='item in data' v-if='item.Title'>
         <span v-for='content in data' v-if='item.Title.toLowerCase() === content[".key"]'>
           <span v-for='key in Object.keys(content)' v-if='(key !== ".key") && (content[key]["Show on Homepage"])'>
@@ -19,7 +19,7 @@
       </li>
     </ul>
     <div class='clearfix' />
-    <Loading :loaded='loaded' />
+    <Loading :loaded='dataLoaded' />
   </main>
 </template>
 
@@ -31,7 +31,8 @@ export default {
   name: 'Homepage',
   data: function () {
     return {
-      loaded: false,
+      dataLoaded: false,
+      imagesLoaded: false,
       imageURLs: []
     }
   },
@@ -43,37 +44,37 @@ export default {
       data: {
         source: db.ref('data'),
         readyCallback: () => {
-          this.loaded = true
+          this.dataLoaded = true
         }
       },
       images: {
         source: db.ref('images'),
-        readyCallback: this.onImageReady()
+        readyCallback: function () {
+          this.imagesLoaded = true
+        }
       }
     }
   },
-  methods: {
-    onImageReady: function () {
+  watch: {
+    imagesLoaded: function () {
       const current = this
-      current.$nextTick(function () {
-        let urls = []
-        const images = current.images
+      let urls = []
+      const images = current.images
 
-        for (var i = 0; i < images.length; i++) {
-          const fullPath = images[i].fullPath
-          const name = images[i].name
+      for (var i = 0; i < images.length; i++) {
+        const fullPath = images[i].fullPath
+        const name = images[i].name
 
-          storage.ref(fullPath).getDownloadURL().then(function (url) {
-            urls.push({
-              fullPath,
-              name,
-              url
-            })
-
-            current.imageURLs = urls
+        storage.ref(fullPath).getDownloadURL().then(function (url) {
+          urls.push({
+            fullPath,
+            name,
+            url
           })
-        }
-      })
+
+          current.imageURLs = urls
+        })
+      }
     }
   }
 }

@@ -8,24 +8,28 @@
       <li class="item" v-for='item in items'>
         <h2>{{ item.Title }}</h2>
         <div class='description'>{{ item.Description }}</div>
-        <div class='image-container' v-for='image in item.Images'>
-          <img :src='image' />
+        <div class='image-container' v-for='imageFullPath in item.Images'>
+          <span v-for='image in imageURLs' v-if='imageFullPath === image.fullPath'>
+            {{ image, item }}
+          </span>
         </div>
       </li>
     </ul>
-    <Loading :loaded='loaded' />
+    <Loading :loaded='dataLoaded' />
   </main>
 </template>
 
 <script>
-import { db } from '@/firebase.js'
+import { db, storage } from '@/firebase.js'
 import Loading from '@/components/Loading'
 
 export default {
   name: 'Ads',
   data: function () {
     return {
-      loaded: false
+      dataLoaded: false,
+      imagesLoaded: false,
+      imageURLs: []
     }
   },
   components: {
@@ -40,8 +44,36 @@ export default {
       items: {
         source: db.ref('data/ads'),
         readyCallback: () => {
-          this.loaded = true
+          this.dataLoaded = true
         }
+      },
+      images: {
+        source: db.ref('images'),
+        readyCallback: () => {
+          this.imagesLoaded = true
+        }
+      }
+    }
+  },
+  watch: {
+    imagesLoaded: function () {
+      const current = this
+      let urls = []
+      const images = current.images
+
+      for (var i = 0; i < images.length; i++) {
+        const fullPath = images[i].fullPath
+        const name = images[i].name
+
+        storage.ref(fullPath).getDownloadURL().then(function (url) {
+          urls.push({
+            fullPath,
+            name,
+            url
+          })
+
+          current.imageURLs = urls
+        })
       }
     }
   }

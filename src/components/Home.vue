@@ -6,7 +6,11 @@
           <span v-for='key in Object.keys(content)' v-if='(key !== ".key") && (content[key]["Show on Homepage"])'>
             <router-link :to='item.Url'>
               <div class='item'>
-                <img v-if='content[key].Images[0]' :src='content[key].Images[0]' />
+                <span v-if='content[key].Images'>
+                  <span v-for='image in imageURLs' v-if='content[key].Images[0] === image.fullPath'>
+                    <img :src='image.url' />
+                  </span>
+                </span>
                 <div>{{ item.Title }}</div>
               </div>
             </router-link>
@@ -20,14 +24,15 @@
 </template>
 
 <script>
-import { db } from '@/firebase.js'
+import { db, storage } from '@/firebase.js'
 import Loading from '@/components/Loading'
 
 export default {
   name: 'Homepage',
   data: function () {
     return {
-      loaded: false
+      loaded: false,
+      imageURLs: []
     }
   },
   components: {
@@ -40,7 +45,35 @@ export default {
         readyCallback: () => {
           this.loaded = true
         }
+      },
+      images: {
+        source: db.ref('images'),
+        readyCallback: this.onImageReady()
       }
+    }
+  },
+  methods: {
+    onImageReady: function () {
+      const current = this
+      current.$nextTick(function () {
+        let urls = []
+        const images = current.images
+
+        for (var i = 0; i < images.length; i++) {
+          const fullPath = images[i].fullPath
+          const name = images[i].name
+
+          storage.ref(fullPath).getDownloadURL().then(function (url) {
+            urls.push({
+              fullPath,
+              name,
+              url
+            })
+
+            current.imageURLs = urls
+          })
+        }
+      })
     }
   }
 }

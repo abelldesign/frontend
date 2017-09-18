@@ -24,7 +24,7 @@ import { db, storage } from '@/firebase.js'
 import Loading from '@/components/Loading'
 
 export default {
-  name: 'PrintServices',
+  name: 'List',
   data: function () {
     return {
       dataLoaded: false,
@@ -38,11 +38,11 @@ export default {
   firebase: function () {
     return {
       page: {
-        source: db.ref('data/print services page'),
+        source: db.ref(this.$route.meta.page),
         asObject: true
       },
       items: {
-        source: db.ref('data/print services'),
+        source: db.ref(this.$route.meta.items),
         readyCallback: () => {
           this.dataLoaded = true
         }
@@ -58,6 +58,7 @@ export default {
   watch: {
     imagesLoaded: function () {
       const current = this
+      console.log(this.$route.meta.page)
       let urls = []
       const images = current.images
 

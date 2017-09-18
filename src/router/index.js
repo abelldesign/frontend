@@ -1,18 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Ads from '@/components/Ads'
-import Brochures from '@/components/Brochures'
-import BusinessStationery from '@/components/BusinessStationery'
-import DisplayBanners from '@/components/DisplayBanners'
-import Documents from '@/components/Documents'
-import Ebooks from '@/components/Ebooks'
 import Home from '@/components/Home'
-import Logos from '@/components/Logos'
-import Magazines from '@/components/Magazines'
+import List from '@/components/List'
 import Missing from '@/components/Missing'
-import Packaging from '@/components/Packaging'
-import Posters from '@/components/Posters'
-import PrintServices from '@/components/PrintServices'
 
 Vue.use(Router)
 
@@ -27,57 +17,101 @@ export default new Router({
     {
       path: '/ads',
       name: 'Ads',
-      component: Ads
+      component: List,
+      meta: {
+        page: 'data/ads page',
+        items: 'data/ads'
+      }
     },
     {
       path: '/brochures',
       name: 'Brochures',
-      component: Brochures
+      component: List,
+      meta: {
+        page: 'data/brochures page',
+        items: 'data/brochures'
+      }
     },
     {
       path: '/business-stationery',
       name: 'Business Stationery',
-      component: BusinessStationery
+      component: List,
+      meta: {
+        page: 'data/business stationery page',
+        items: 'data/business stationery'
+      }
     },
     {
       path: '/display-banners',
       name: 'Display Banners',
-      component: DisplayBanners
+      component: List,
+      meta: {
+        page: 'data/display banners page',
+        items: 'data/display banners'
+      }
     },
     {
       path: '/documents',
       name: 'Documents',
-      component: Documents
+      component: List,
+      meta: {
+        page: 'data/documents page',
+        items: 'data/documents'
+      }
     },
     {
       path: '/ebooks',
       name: 'eBooks',
-      component: Ebooks
+      component: List,
+      meta: {
+        page: 'data/ebooks page',
+        items: 'data/ebooks'
+      }
     },
     {
       path: '/logos',
       name: 'Logos',
-      component: Logos
+      component: List,
+      meta: {
+        page: 'data/logos page',
+        items: 'data/logos'
+      }
     },
     {
       path: '/magazines',
       name: 'Magazines',
-      component: Magazines
+      component: List,
+      meta: {
+        page: 'data/magazines page',
+        items: 'data/magazines'
+      }
     },
     {
       path: '/packaging',
       name: 'Packaging',
-      component: Packaging
+      component: List,
+      meta: {
+        page: 'data/packaging page',
+        items: 'data/packaging'
+      }
     },
     {
       path: '/posters',
       name: 'Posters',
-      component: Posters
+      component: List,
+      meta: {
+        page: 'data/posters page',
+        items: 'data/posters'
+      }
     },
     {
       path: '/print-services',
       name: 'Print Services',
-      component: PrintServices
+      component: List,
+      meta: {
+        page: 'data/print services page',
+        items: 'data/print services'
+      }
     },
     {
       path: '*',

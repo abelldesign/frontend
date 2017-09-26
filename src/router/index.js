@@ -19,8 +19,8 @@ export default new Router({
       name: 'Ads',
       component: List,
       meta: {
-        page: 'data/ads page',
-        items: 'data/ads'
+        page: 'Ads Page',
+        items: 'Ads'
       }
     },
     {
@@ -28,8 +28,8 @@ export default new Router({
       name: 'Brochures',
       component: List,
       meta: {
-        page: 'data/brochures page',
-        items: 'data/brochures'
+        page: 'Brochures Page',
+        items: 'Brochures'
       }
     },
     {
@@ -37,8 +37,8 @@ export default new Router({
       name: 'Business Stationery',
       component: List,
       meta: {
-        page: 'data/business stationery page',
-        items: 'data/business stationery'
+        page: 'Business Stationery Page',
+        items: 'Business Stationery'
       }
     },
     {
@@ -46,8 +46,8 @@ export default new Router({
       name: 'Display Banners',
       component: List,
       meta: {
-        page: 'data/display banners page',
-        items: 'data/display banners'
+        page: 'Display Banners Page',
+        items: 'Display Banners'
       }
     },
     {
@@ -55,8 +55,8 @@ export default new Router({
       name: 'Documents',
       component: List,
       meta: {
-        page: 'data/documents page',
-        items: 'data/documents'
+        page: 'Documents Page',
+        items: 'Documents'
       }
     },
     {
@@ -64,8 +64,8 @@ export default new Router({
       name: 'eBooks',
       component: List,
       meta: {
-        page: 'data/ebooks page',
-        items: 'data/ebooks'
+        page: 'Ebooks Page',
+        items: 'Ebooks'
       }
     },
     {
@@ -73,8 +73,8 @@ export default new Router({
       name: 'Logos',
       component: List,
       meta: {
-        page: 'data/logos page',
-        items: 'data/logos'
+        page: 'Logos Page',
+        items: 'Logos'
       }
     },
     {
@@ -82,8 +82,8 @@ export default new Router({
       name: 'Magazines',
       component: List,
       meta: {
-        page: 'data/magazines page',
-        items: 'data/magazines'
+        page: 'Magazines Page',
+        items: 'Magazines'
       }
     },
     {
@@ -91,8 +91,8 @@ export default new Router({
       name: 'Packaging',
       component: List,
       meta: {
-        page: 'data/packaging page',
-        items: 'data/packaging'
+        page: 'Packaging Page',
+        items: 'Packaging'
       }
     },
     {
@@ -100,8 +100,8 @@ export default new Router({
       name: 'Posters',
       component: List,
       meta: {
-        page: 'data/posters page',
-        items: 'data/posters'
+        page: 'Posters Page',
+        items: 'Posters'
       }
     },
     {
@@ -109,8 +109,8 @@ export default new Router({
       name: 'Print Services',
       component: List,
       meta: {
-        page: 'data/print services page',
-        items: 'data/print services'
+        page: 'Print Services Page',
+        items: 'Print Services'
       }
     },
     {

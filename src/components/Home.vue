@@ -1,80 +1,75 @@
 <template>
-  <main class="app">
-    <ul v-if='dataLoaded' class='items container'>
-      <li v-for='item in data' v-if='item.Title'>
-        <span v-for='content in data' v-if='item.Title.toLowerCase() === content[".key"]'>
-          <span v-for='key in Object.keys(content)' v-if='(key !== ".key") && (content[key]["Show on Homepage"])'>
-            <router-link :to='item.Url'>
-              <div class='item'>
-                <span v-if='content[key].Images'>
-                  <span v-for='image in imageURLs' v-if='content[key].Images[0] === image.fullPath'>
-                    <img :src='image.url' />
-                  </span>
-                </span>
-                <div>{{ item.Title }}</div>
-              </div>
-            </router-link>
+  <main class="app items">
+    <div v-for='item in items' class='item'>
+      <span v-for='imageData in item.dataset' v-if='(imageData.name === "Homepage Image") && (imageData.value[0])'>
+        <span v-for='nameData in item.dataset' v-if='nameData.name === "Title"'>
+          {{ getImage(imageData.value[0].text, item.name) }}
+          <span v-for='pageItem in pageItems' :href='imageData.url' v-if='pageItem.name === item.name'>
+            <a
+              v-for='urlItem in item.dataset'
+              v-if='urlItem.name === "URL"'
+              :href='urlItem.value'
+            >
+              <img :src='pageItem.url' />
+              <div class='name'>{{ nameData.value }}</div>
+            </a>
           </span>
         </span>
-      </li>
-    </ul>
-    <div class='clearfix' />
-    <Loading :loaded='dataLoaded' />
+      </span>
+    </div>
   </main>
 </template>
 
 <script>
-import { db, storage } from '@/firebase.js'
-import Loading from '@/components/Loading'
+import firebase from 'firebase'
 
 export default {
-  name: 'Homepage',
-  data: function () {
+  data () {
     return {
-      dataLoaded: false,
-      imagesLoaded: false,
-      imageURLs: []
+      pageItems: [
+        { name: 'Ads Page', url: '' },
+        { name: 'Brochures Page', url: '' },
+        { name: 'Business Stationery Page', url: '' },
+        { name: 'Display Banners Page', url: '' },
+        { name: 'Documents Page', url: '' },
+        { name: 'Ebooks Page', url: '' },
+        { name: 'Logos Page', url: '' },
+        { name: 'Magazines Page', url: '' },
+        { name: 'Packaging Page', url: '' },
+        { name: 'Posters Page', url: '' },
+        { name: 'Print Services Page', url: '' }
+      ]
     }
   },
-  components: {
-    Loading
-  },
-  firebase: function () {
-    return {
-      data: {
-        source: db.ref('data'),
-        readyCallback: () => {
-          this.dataLoaded = true
-        }
-      },
-      images: {
-        source: db.ref('images'),
-        readyCallback: function () {
-          this.imagesLoaded = true
+  computed: {
+    items () {
+      const data = this.$store.getters.getData
+      const items = []
+
+      for (let dataKey in data) {
+        const item = data[dataKey]
+
+        for (let pageItem of this.pageItems) {
+          if (item.name === pageItem.name) {
+            items.push(item)
+          }
         }
       }
+
+      return items
     }
   },
-  watch: {
-    imagesLoaded: function () {
-      const current = this
-      let urls = []
-      const images = current.images
+  methods: {
+    getImage (name, itemName) {
+      const fullPath = 'images/' + name
 
-      for (var i = 0; i < images.length; i++) {
-        const fullPath = images[i].fullPath
-        const name = images[i].name
-
-        storage.ref(fullPath).getDownloadURL().then(function (url) {
-          urls.push({
-            fullPath,
-            name,
-            url
-          })
-
-          current.imageURLs = urls
-        })
-      }
+      firebase.storage().ref(fullPath).getDownloadURL().then((url) => {
+        for (let pageItem of this.pageItems) {
+          if (pageItem.name === itemName) {
+            pageItem.url = url
+          }
+        }
+      })
     }
   }
 }

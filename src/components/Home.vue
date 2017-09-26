@@ -1,23 +1,26 @@
 <template>
-  <main class="app items">
-    <div v-for='item in items' class='item'>
-      <span v-for='imageData in item.dataset' v-if='(imageData.name === "Homepage Image") && (imageData.value[0])'>
-        <span v-for='nameData in item.dataset' v-if='nameData.name === "Title"'>
-          {{ getImage(imageData.value[0].text, item.name) }}
-          <span v-for='pageItem in pageItems' :href='imageData.url' v-if='pageItem.name === item.name'>
-            <a
-              v-for='urlItem in item.dataset'
-              v-if='urlItem.name === "URL"'
-              :href='urlItem.value'
-            >
-              <img :src='pageItem.url' />
-              <div class='name'>{{ nameData.value }}</div>
-            </a>
+  <div>
+    <main class="app items">
+      <div v-for='item in items' class='item'>
+        <span v-for='imageData in item.dataset' v-if='(imageData.name === "Homepage Image") && (imageData.value[0])'>
+          <span v-for='nameData in item.dataset' v-if='nameData.name === "Title"'>
+            {{ getImage(imageData.value[0].text, item.name) }}
+            <span v-for='pageItem in pageItems' :href='imageData.url' v-if='pageItem.name === item.name'>
+              <a
+                v-for='urlItem in item.dataset'
+                v-if='urlItem.name === "URL"'
+                :href='urlItem.value'
+              >
+                <img :src='pageItem.url' />
+                <div class='name'>{{ nameData.value }}</div>
+              </a>
+            </span>
           </span>
         </span>
-      </span>
-    </div>
-  </main>
+      </div>
+    </main>
+    <div class='clearfix' />
+  </div>
 </template>
 
 <script>

@@ -14,17 +14,21 @@
         {{ data.value }}
       </div>
     </div>
-    <ul class='content'>
-      <li v-for='item in itemData.items'>
+    <ul class='content items'>
+      <li v-for='item in itemData.items' class='item'>
         <h2>
           {{ item.name }}
         </h2>
         <div v-for='dataItem in item.dataset' v-if='dataItem.name === "Description"'>
           {{ dataItem.value }}
         </div>
-        <div v-for='image in imageData[item.name]'>
-          {{ image }}
-        </div>
+        <ul v-for='imageItem in item.dataset' v-if='imageItem.name === "Images"' class='image-container'>
+          <li v-for='image in imageItem.value'>
+            <a :href='`https://storage.googleapis.com/abell-design.appspot.com/images/${image.text}`'>
+              <img :src='`https://storage.googleapis.com/abell-design.appspot.com/images/${image.text}`' />
+            </a>
+          </li>
+        </ul>
       </li>
     </ul>
   </main>

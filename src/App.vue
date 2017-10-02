@@ -136,12 +136,22 @@ main {
     }
 
     .image-container {
-      float: left;
-      width: 50%;
-
-      img {
-        width: 92%;
+      &:after {
+        content: " ";
+        display: block;
+        clear: both;
+      }
+      li {
+        display: block;
+        width: 42%;
+        float: left;
         padding-right: 4%;
+        margin-top: 40px;
+
+        img {
+          display: block;
+          width: 100%;
+        }
       }
     }
   }

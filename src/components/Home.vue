@@ -2,21 +2,21 @@
   <div>
     <main class="app items">
       <div v-for='item in items' class='item'>
-        <span v-for='imageData in item.dataset' v-if='(imageData.name === "Homepage Image") && (imageData.value[0])'>
-          <span v-for='nameData in item.dataset' v-if='nameData.name === "Title"'>
-            {{ getImage(imageData.value[0].text, item.name) }}
-            <span v-for='pageItem in pageItems' :href='imageData.url' v-if='pageItem.name === item.name'>
-              <a
-                v-for='urlItem in item.dataset'
-                v-if='urlItem.name === "URL"'
-                :href='urlItem.value'
-              >
-                <img :src='pageItem.url' />
-                <div class='name'>{{ nameData.value }}</div>
-              </a>
-            </span>
+        <a
+          v-for='urlData in item.dataset'
+          :key='urlData.name'
+          v-if='urlData.name === "URL"'
+          :href='urlData.value'
+        >
+          <span
+            v-for='imageData in item.dataset'
+            :key='imageData.name'
+            v-if='(imageData.name === "Homepage Image") && (imageData.value[0])'
+          >
+            <img :src='`https://storage.googleapis.com/abell-design.appspot.com/images/${imageData.value[0].text}`' />
+            <div class='name'>{{ item.name }}</div>
           </span>
-        </span>
+        </a>
       </div>
     </main>
     <div class='clearfix' />
@@ -30,17 +30,17 @@ export default {
   data () {
     return {
       pageItems: [
-        { name: 'Ads Page', url: '' },
-        { name: 'Brochures Page', url: '' },
-        { name: 'Business Stationery Page', url: '' },
-        { name: 'Display Banners Page', url: '' },
-        { name: 'Documents Page', url: '' },
-        { name: 'Ebooks Page', url: '' },
-        { name: 'Logos Page', url: '' },
-        { name: 'Magazines Page', url: '' },
-        { name: 'Packaging Page', url: '' },
-        { name: 'Posters Page', url: '' },
-        { name: 'Print Services Page', url: '' }
+        { name: 'Ads Page', url: '/ads' },
+        { name: 'Brochures Page', url: '/brochures' },
+        { name: 'Business Stationery Page', url: '/business-stationery' },
+        { name: 'Display Banners Page', url: '/display-banners' },
+        { name: 'Documents Page', url: '/documents' },
+        { name: 'Ebooks Page', url: '/ebooks' },
+        { name: 'Logos Page', url: '/logos' },
+        { name: 'Magazines Page', url: '/magazines' },
+        { name: 'Packaging Page', url: '/packaging' },
+        { name: 'Posters Page', url: '/posters' },
+        { name: 'Print Services Page', url: '/print-services' }
       ]
     }
   },

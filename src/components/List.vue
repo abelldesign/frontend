@@ -10,6 +10,7 @@
       <div
         v-for='data in pageData.dataset'
         v-if='data.name === "Description"'
+        class='description'
       >
         {{ data.value }}
       </div>
@@ -19,7 +20,11 @@
         <h2>
           {{ item.name }}
         </h2>
-        <div v-for='dataItem in item.dataset' v-if='dataItem.name === "Description"'>
+        <div
+          v-for='dataItem in item.dataset'
+          v-if='(dataItem.name === "Description") && (dataItem.value !== "")'
+          class='description'
+        >
           {{ dataItem.value }}
         </div>
         <ul v-for='imageItem in item.dataset' v-if='imageItem.name === "Images"' class='image-container'>

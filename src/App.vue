@@ -112,6 +112,10 @@ main {
   h1 {
     margin: 0;
   }
+
+  .description {
+    margin-top: 10px;
+  }
 }
 
 .content {
@@ -123,17 +127,18 @@ main {
       content: ' ';
       clear: both;
     }
+  }
 
-    h2 {
-      display: block;
-      width: 100%;
-      font-size: 24px;
-      margin-bottom: 12px;
-    }
+  h2 {
+    display: block;
+    width: 100%;
+    font-size: 24px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
 
-    .description {
-      margin-bottom: 20px;
-    }
+  .description {
+    margin-bottom: 20px;
   }
 }
 
@@ -149,7 +154,7 @@ main {
     width: 42%;
     float: left;
     padding-right: 4%;
-    margin-top: 40px;
+    margin-bottom: 20px;
 
     img {
       display: block;

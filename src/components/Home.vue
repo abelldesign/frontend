@@ -1,6 +1,6 @@
 <template>
   <div>
-    <main class="app items">
+    <main class="home app items">
       <div v-for='item in items' class='item'>
         <a
           v-for='urlData in item.dataset'
@@ -92,7 +92,7 @@ p {
   clear: both;
 }
 
-.items {
+.home.items {
   .item {
     width: 50%;
     float: left;
@@ -117,6 +117,7 @@ p {
     text-align: center;
 
     img {
+      max-height: 200px;
       max-width: 100%;
     }
 

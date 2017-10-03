@@ -117,7 +117,6 @@ p {
     text-align: center;
 
     img {
-      max-height: 200px;
       max-width: 100%;
     }
 

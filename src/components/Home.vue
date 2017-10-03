@@ -14,7 +14,14 @@
             v-if='(imageData.name === "Homepage Image") && (imageData.value[0])'
           >
             <img :src='imageData.value[0].text' />
-            <div class='name'>{{ item.name }}</div>
+          </span>
+
+          <span
+            v-for='nameData in item.dataset'
+            :key='nameData.name'
+            v-if='nameData.name === "Title"'
+          >
+            <div class='name'>{{ nameData.value }}</div>
           </span>
         </a>
       </div>

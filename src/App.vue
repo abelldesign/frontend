@@ -134,25 +134,26 @@ main {
     .description {
       margin-bottom: 20px;
     }
+  }
+}
 
-    .image-container {
-      &:after {
-        content: " ";
-        display: block;
-        clear: both;
-      }
-      li {
-        display: block;
-        width: 42%;
-        float: left;
-        padding-right: 4%;
-        margin-top: 40px;
+.image-container {
+  &:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
 
-        img {
-          display: block;
-          width: 100%;
-        }
-      }
+  li {
+    display: block;
+    width: 42%;
+    float: left;
+    padding-right: 4%;
+    margin-top: 40px;
+
+    img {
+      display: block;
+      width: 100%;
     }
   }
 }

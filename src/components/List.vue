@@ -15,7 +15,7 @@
       </div>
     </div>
     <ul class='content items'>
-      <li v-for='item in itemData.items' class='item'>
+      <li v-for='item in itemData.items'>
         <h2>
           {{ item.name }}
         </h2>

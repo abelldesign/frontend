@@ -13,7 +13,7 @@
             :key='imageData.name'
             v-if='(imageData.name === "Homepage Image") && (imageData.value[0])'
           >
-            <img :src='`https://storage.googleapis.com/abell-design.appspot.com/images/${imageData.value[0].text}`' />
+            <img :src='imageData.value[0].text' />
             <div class='name'>{{ item.name }}</div>
           </span>
         </a>

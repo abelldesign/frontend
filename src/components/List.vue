@@ -24,8 +24,8 @@
         </div>
         <ul v-for='imageItem in item.dataset' v-if='imageItem.name === "Images"' class='image-container'>
           <li v-for='image in imageItem.value'>
-            <a :href='`https://storage.googleapis.com/abell-design.appspot.com/images/${image.text}`'>
-              <img :src='`https://storage.googleapis.com/abell-design.appspot.com/images/${image.text}`' />
+            <a :href='image.text'>
+              <img :src='image.text' />
             </a>
           </li>
         </ul>

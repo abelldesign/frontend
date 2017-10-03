@@ -61,7 +61,7 @@ export default new Router({
     },
     {
       path: '/ebooks',
-      name: 'eBooks',
+      name: 'Ebooks',
       component: List,
       meta: {
         page: 'Ebooks Page',

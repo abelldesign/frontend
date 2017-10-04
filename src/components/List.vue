@@ -1,36 +1,23 @@
 <template>
   <main class='container'>
     <div class='content-summary'>
-      <h1
-        v-for='data in pageData.dataset'
-        v-if='data.name === "Title"'
-      >
-        {{ data.value }}
-      </h1>
-      <div
-        v-for='data in pageData.dataset'
-        v-if='data.name === "Description"'
-        class='description'
-      >
-        {{ data.value }}
-      </div>
+      <h1>{{ pageData.Title.value }}</h1>
+      <div v-if='pageData.Description'>{{ pageData.Description.value }}</div>
     </div>
+
     <ul class='content items'>
       <li v-for='item in itemData.items'>
-        <h2>
-          {{ item.name }}
-        </h2>
+        <h2>{{ item.Title.value }}</h2>
         <div
-          v-for='dataItem in item.dataset'
-          v-if='(dataItem.name === "Description") && (dataItem.value !== "")'
           class='description'
+          v-if='item.Description && item.Description.value'
         >
-          {{ dataItem.value }}
+          {{ item.Description.value }}
         </div>
-        <ul v-for='imageItem in item.dataset' v-if='imageItem.name === "Images"' class='image-container'>
-          <li v-for='image in imageItem.value'>
-            <a :href='image.text'>
-              <img :src='image.text' />
+        <ul>
+          <li v-for='imageItem in item.Images.value' class='image-container'>
+            <a :href='imageItem.text'>
+              <img :src='imageItem.text' />
             </a>
           </li>
         </ul>
@@ -40,8 +27,6 @@
 </template>
 
 <script>
-import firebase from 'firebase'
-
 export default {
   name: 'List',
   data () {
@@ -60,28 +45,15 @@ export default {
       return this.$route.meta.page
     },
     itemData () {
-      return this.$store.getters.getData[this.itemName] || {}
+      return this.$store.getters.getData[this.itemName] || {
+        Title: {},
+        Description: {}
+      }
     },
     pageData () {
-      return this.$store.getters.getData[this.pageName] || {}
-    },
-    images () {
-      let imageObject = {}
-
-      for (let key in this.itemData.items) {
-        const item = this.itemData.items[key]
-        imageObject[item.name] = []
-
-        for (let data of item.dataset) {
-          if (data.name === 'Images') {
-            for (let image of data.value) {
-              firebase.storage().ref('images/' + image.text).getDownloadURL().then((url) => {
-                imageObject[item.name].push(url)
-                this.imageData = imageObject
-              })
-            }
-          }
-        }
+      return this.$store.getters.getData[this.pageName] || {
+        Title: {},
+        Description: {}
       }
     }
   }

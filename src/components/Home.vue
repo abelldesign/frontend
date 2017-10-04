@@ -1,30 +1,14 @@
 <template>
   <div>
     <main class="home app items">
-      <div v-for='item in items' class='item'>
-        <a
-          v-for='urlData in item.dataset'
-          :key='urlData.name'
-          v-if='urlData.name === "URL"'
-          :href='urlData.value'
-        >
-          <span
-            v-for='imageData in item.dataset'
-            :key='imageData.name'
-            v-if='(imageData.name === "Homepage Image") && (imageData.value[0])'
-          >
-            <img :src='imageData.value[0].text' />
-          </span>
-
-          <span
-            v-for='nameData in item.dataset'
-            :key='nameData.name'
-            v-if='nameData.name === "Title"'
-          >
-            <div class='name'>{{ nameData.value }}</div>
-          </span>
-        </a>
-      </div>
+      <ul>
+        <li v-for='item in items' class='item'>
+          <a :href='item.URL.value'>
+            <img :src='item["Homepage Image"].value[0].text' />
+            <div class='name'>{{ item.Title.value }}</div>
+          </a>
+        </li>
+      </ul>
     </main>
     <div class='clearfix' />
   </div>
@@ -37,17 +21,17 @@ export default {
   data () {
     return {
       pageItems: [
-        { name: 'Ads Page', url: '/ads' },
-        { name: 'Brochures Page', url: '/brochures' },
-        { name: 'Business Stationery Page', url: '/business-stationery' },
-        { name: 'Display Banners Page', url: '/display-banners' },
-        { name: 'Documents Page', url: '/documents' },
-        { name: 'Ebooks Page', url: '/ebooks' },
-        { name: 'Logos Page', url: '/logos' },
-        { name: 'Magazines Page', url: '/magazines' },
-        { name: 'Packaging Page', url: '/packaging' },
-        { name: 'Posters Page', url: '/posters' },
-        { name: 'Print Services Page', url: '/print-services' }
+        'Ads Page',
+        'Brochures Page',
+        'Business Stationery Page',
+        'Display Banners Page',
+        'Documents Page',
+        'Ebooks Page',
+        'Logos Page',
+        'Magazines Page',
+        'Packaging Page',
+        'Posters Page',
+        'Print Services Page'
       ]
     }
   },
@@ -58,9 +42,8 @@ export default {
 
       for (let dataKey in data) {
         const item = data[dataKey]
-
         for (let pageItem of this.pageItems) {
-          if (item.name === pageItem.name) {
+          if (dataKey === pageItem) {
             items.push(item)
           }
         }

@@ -1,10 +1,9 @@
 <template>
   <header>
     <div class="logo">
-      <router-link to='/'><img :src="logo" alt="Logo" /></router-link>
+      <router-link to='/'><img itemprop="logo" :src="logo" alt="Logo" /></router-link>
     </div>
-    <div class="page-title"><router-link to='/'>Abell Design</router-link></div>
-    <div class="menu-icon">...</div>
+    <div class="page-title"><router-link to='/' itemprop="name">Abell Design</router-link></div>
   </header>
 </template>
 

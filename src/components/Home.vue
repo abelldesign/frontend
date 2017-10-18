@@ -1,18 +1,21 @@
 <template>
   <div>
-    <main class="home app items">
+    <main class="home app items" v-if='items.length > 0'>
       <div class='intro'>
-        <p>{{ intro }}</p>
+        <p itemprop='description'>{{ intro }}</p>
       </div>
 
-      <ul>
-        <li v-for='item in items' v-bind:key='item.value[0].text' class='item'>
-          <a :href='item.URL.value'>
-            <img :src='item["Homepage Image"].value[0].text' />
-            <div class='name'>{{ item.Title.value }}</div>
+      <ul itemscope itemtype="http://schema.org/ItemList">
+        <li v-for='item in items' v-bind:key='item.Title.value' class='item'>
+          <a :href='item.URL.value' itemprop='url'>
+            <img :src='item["Homepage Image"].value[0].text' itemprop='image' />
+            <div class='name' itemprop='name'>{{ item.Title.value }}</div>
           </a>
         </li>
       </ul>
+    </main>
+    <main v-else>
+      <Loading />
     </main>
     <div class='clearfix' />
   </div>
@@ -20,8 +23,12 @@
 
 <script>
 import firebase from 'firebase'
+import Loading from './Loading'
 
 export default {
+  components: {
+    'Loading': Loading
+  },
   data () {
     return {
       pageItems: [

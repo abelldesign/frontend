@@ -1,8 +1,8 @@
 <template>
   <footer class="footer">
     <div class="contact">
-			<p><a href="mailto:grace@abelldesign.co.uk">grace@abelldesign.co.uk</a></p>
-    	<p><a href="tel:+447719796949">07719 796949</a></p>
+			<p><a itemprop="email" href="mailto:grace@abelldesign.co.uk">grace@abelldesign.co.uk</a></p>
+    	<p><a itemprop='telephone' href="tel:+447719796949">07719 796949</a></p>
     </div>
     <div class="social">
     	<a href="https://www.facebook.com/AbellDesignYork/"><img alt="Facebook" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBiYXNlUHJvZmlsZT0iYmFzaWMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCINCgkgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMTQxLjcgMTQxLjciIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6IzkxYzVjMjt9DQoJLnN0MXtmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxnIGlkPSJMYXllcl8xIj4NCgk8ZyBpZD0iWE1MSURfMV8iPg0KCQk8Zz4NCgkJCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xNDEuNyw3Ljh2MTI2LjFjMCw0LjMtMy41LDcuOC03LjgsNy44SDk3LjhWODYuOGgxOC40bDIuOC0yMS40SDk3LjhWNTEuOGMwLTYuMiwxLjctMTAuNCwxMC42LTEwLjRsMTEuMywwDQoJCQkJVjIyLjJjLTItMC4zLTguNy0wLjgtMTYuNS0wLjhjLTE2LjMsMC0yNy41LDEwLTI3LjUsMjguM3YxNS44SDU3LjJ2MjEuNGgxOC41djU0LjlINy44Yy00LjMsMC03LjgtMy41LTcuOC03LjhWNy44DQoJCQkJQzAsMy41LDMuNSwwLDcuOCwwaDEyNi4xQzEzOC4yLDAsMTQxLjcsMy41LDE0MS43LDcuOHoiLz4NCgkJPC9nPg0KCTwvZz4NCjwvZz4NCjxnIGlkPSJMYXllcl8yIj4NCjwvZz4NCjwvc3ZnPg0K"></a>

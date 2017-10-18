@@ -1,8 +1,12 @@
 <template>
   <div>
     <main class="home app items">
+      <div class='intro'>
+        <p>{{ intro }}</p>
+      </div>
+
       <ul>
-        <li v-for='item in items' class='item'>
+        <li v-for='item in items' v-bind:key='item.value[0].text' class='item'>
           <a :href='item.URL.value'>
             <img :src='item["Homepage Image"].value[0].text' />
             <div class='name'>{{ item.Title.value }}</div>
@@ -24,7 +28,6 @@ export default {
         'Ads Page',
         'Brochures Page',
         'Business Stationery Page',
-        'Display Banners Page',
         'Documents Page',
         'Ebooks Page',
         'Logos Page',
@@ -50,6 +53,15 @@ export default {
       }
 
       return items
+    },
+    intro () {
+      const homepage = this.$store.getters.getData.Homepage || {
+        Intro: {
+          value: ''
+        }
+      }
+
+      return homepage.Intro.value
     }
   },
   methods: {
@@ -83,6 +95,26 @@ p {
 }
 
 .home.items {
+  @media screen and (min-width: 700px) {
+    width: 660px;
+    margin: 0 auto;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 900px;
+    margin: 0 auto;
+  }
+
+  .intro {
+    background: #e0f2f1;
+    padding: 20px;
+    margin: 20px;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
   .item {
     width: 50%;
     float: left;
@@ -96,7 +128,7 @@ p {
       height: 260px;
     }
 
-    @media screen and (min-width: 699px) {
+    @media screen and (min-width: 700px) {
       width: 33.33%
     }
   }

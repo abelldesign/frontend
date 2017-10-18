@@ -1,5 +1,5 @@
 <template>
-  <div id="app" itemscope itemtype=''>
+  <div id="app" itemscope itemtype='http://schema.org/LocalBusiness'>
     <HeaderLayout />
     <router-view></router-view>
     <FooterLayout />

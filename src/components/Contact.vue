@@ -2,6 +2,7 @@
   <main class='container'>
     <div v-if='contact.Deck.value.length > 0'>
       <p>{{ contact.Deck.value }}</p>
+      <div v-html='contact.Embed.value' />
     </div>
     <Loading v-else />
   </main>
@@ -16,7 +17,7 @@ export default {
   computed: {
     contact () {
       const data = this.$store.getters.getData || {}
-      const contact = data['Contact Page'] || {
+      let contact = data['Contact Page'] || {
         Deck: {
           value: ''
         },
@@ -24,6 +25,7 @@ export default {
           value: ''
         }
       }
+
       return contact
     }
   }

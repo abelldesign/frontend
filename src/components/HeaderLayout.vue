@@ -4,6 +4,14 @@
       <router-link to='/'><img itemprop="logo" :src="logo" alt="Logo" /></router-link>
     </div>
     <div class="page-title"><router-link to='/' itemprop="name">Abell Design</router-link></div>
+    <nav>
+      <ul>
+        <li v-for='item in menuItems' :key='item.Text.value'>
+          <a target="_blank" :href='item.URL.value' v-if='item.URL.value.includes("http")'>{{ item.Text.value }}</a>
+          <router-link v-else :to='item.URL.value'>{{ item.Text.value }}</router-link>
+        </li>
+      </ul>
+    </nav>
   </header>
 </template>
 
@@ -16,6 +24,20 @@ export default {
   data: function () {
     return {
       logo
+    }
+  },
+  computed: {
+    menuItems () {
+      const menuLinks = this.$store.getters.getData['Menu Links'] || {}
+      const linkItems = menuLinks.items || {}
+      let formattedItems = []
+
+      for (const key in linkItems) {
+        const item = linkItems[key]
+        formattedItems.push(item)
+      }
+
+      return formattedItems
     }
   }
 }
@@ -84,6 +106,18 @@ export default {
 
       @media screen and (min-width: 699px) {
         margin-top: -98px;
+      }
+    }
+
+    nav {
+      background: @turquoise;
+      border-top: 2px solid #fff;
+      clear: both;
+
+      li {
+        padding: 5px 10px;
+        font-family: 'Lato', sans-serif;
+        display: inline-block;
       }
     }
   }

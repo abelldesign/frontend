@@ -9,7 +9,8 @@ import { store } from './store'
 import { firebaseConfig } from './config'
 
 Vue.use(VueAnalytics, {
-  id: 'UA-102804990-1'
+  id: 'UA-102804990-1',
+  router
 })
 
 Vue.config.productionTip = false

@@ -20,8 +20,6 @@ export default {
 </script>
 
 <style lang="less">
-@import url('https://fonts.googleapis.com/css?family=Lato');
-
 @turquoise: #90c5c2;
 @sky: #e0f2f1;
 @grey: #b1c2c1;
